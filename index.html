@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nagima Bouchikhi, développeuse logicielle</title>
+  <meta name="description" content="Étudiante en Master 2 Informatique (Génie Logiciel) à l'Université de Lille. Recherche un stage de 4 à 6 mois à partir du 1er mars 2027.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Couleurs adaptées pour contraster avec l'arrière-plan texturé/illustré */
+      --bg: #FDFBFB;
+      --surface: rgba(255, 255, 255, 0.85); /* Effet verre / semi-transparent */
+      --ink: #2C2528;
+      --muted: #6E5F64;
+      --line: #E8D5DC;
+      --accent: #D46A84; 
+      --accent-soft: #F9ECEF;
+      --green-accent: #4B8B6A;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1A1517;
+        --surface: rgba(25, 20, 23, 0.88);
+        --ink: #F7F0F3;
+        --muted: #B0A1A6;
+        --line: #3A2F33;
+        --accent: #E2889D;
+        --accent-soft: #332227;
+        --green-accent: #6CB58D;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      background-color: var(--bg);
+     
+      background-image: linear-gradient(
+          to bottom, 
+          rgba(253, 251, 251,0.60), 
+          rgba(253, 251, 251, 0.72)
+        ), 
+        url('fond.jpg'); 
+      background-size: 100% auto;
+      background-position: center top; 
+      background-repeat: repeat-y;
+      background-attachment: scroll; 
+      color: var(--ink);
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-optical-sizing: auto;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-image: linear-gradient(
+            to bottom, 
+            rgba(26, 21, 23, 0.90), 
+            rgba(26, 21, 23, 0.96)
+          ), 
+          url('fond.jpg');
+      }
+    }
+
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    /* Colonne d'identité */
+    .identity {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .role {
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .contact {
+      list-style: none;
+      margin-top: 28px;
+      display: grid;
+      gap: 6px;
+      font-size: 0.975rem;
+    }
+    .contact span { color: var(--muted); }
+
+    /* Contenu */
+    main { padding: 40px 0 80px; }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      max-width: 17ch;
+    }
+    .hero p {
+      margin-top: 24px;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.125rem;
+    }
+    .availability {
+      margin-top: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent-soft);
+      color: var(--ink);
+      padding: 8px 14px 8px 12px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      border: 1px solid rgba(212, 106, 132, 0.2);
+    }
+    .availability::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    section { margin-top: 88px; }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 28px;
+    }
+
+    /* Projets */
+    .project {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+    }
+    .project:last-child { border-bottom: 1px solid var(--line); }
+    .project h3 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+    .project .context {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .project > p {
+      margin-top: 16px;
+      max-width: 62ch;
+    }
+    .project ul {
+      margin-top: 14px;
+      padding-left: 1.1em;
+      max-width: 62ch;
+    }
+    .project li { margin-top: 6px; }
+    .project li::marker { color: var(--green-accent); }
+    .stack {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .stack strong { color: var(--ink); font-weight: 500; }
+    .project .link { display: inline-block; margin-top: 14px; font-weight: 500; }
+
+    /* Compétences */
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--line);
+    }
+    .skills > div {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 2px;
+    }
+    .skills dt { color: var(--muted); font-size: 0.95rem; }
+    .skills dd { font-weight: 500; }
+
+    /* Formation */
+    .timeline { list-style: none; border-top: 1px solid var(--line); }
+    .timeline li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 2px;
+    }
+    .timeline .years { color: var(--muted); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+    .timeline .title { font-weight: 500; }
+    .timeline .school { color: var(--muted); }
+
+    .languages { margin-top: 28px; color: var(--muted); }
+    .languages strong { color: var(--ink); font-weight: 500; }
+
+    footer {
+      padding: 32px 0 48px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Écran large : identité fixe à gauche */
+    @media (min-width: 900px) {
+      .page {
+        grid-template-columns: 260px 1fr;
+        gap: 72px;
+      }
+      .identity {
+        position: sticky;
+        top: 0;
+        align-self: start;
+        padding: 64px 0;
+        border-bottom: none;
+      }
+      main { padding: 64px 0 96px; }
+      .skills > div, .timeline li {
+        grid-template-columns: 180px 1fr;
+        gap: 24px;
+      }
+      footer { grid-column: 2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <aside class="identity">
+      <p class="name">Nagima Bouchikhi</p>
+      <p class="role">Étudiante en Master 2 Génie Logiciel</p>
+      <ul class="contact">
+        <li><a href="mailto:nagimabouchikhi@gmail.com">nagimabouchikhi@gmail.com</a></li>
+        <li><a href="https://github.com/NagimaBouchikhi">github.com/NagimaBouchikhi</a></li>
+        <li><span>Lille / Arras, mobile sur Paris</span></li>
+      </ul>
+    </aside>
+
+    <main>
+      <div class="hero">
+        <h1>Je cherche un stage en développement logiciel à partir de mars 2027.</h1>
+        <p>Étudiante en Master 2 Informatique, parcours Génie Logiciel, à l'Université de Lille. J'aime concevoir des applications propres et bien structurées, du modèle de données jusqu'à l'interface : mobile Android en Kotlin, web avec Django et React, et conception de bases de données.</p>
+        <p class="availability">Stage de 4 à 6 mois dès le 1er mars 2027, avec objectif CDI</p>
+      </div>
+
+      <section id="projets" aria-labelledby="projets-titre">
+        <h2 id="projets-titre">Projets</h2>
+
+        <article class="project">
+          <h3>MyAnimeApp, application Android native</h3>
+          <p class="context">Projet académique, Master 1</p>
+          <p>Application de consultation et de gestion d'une collection d'animés, construite en architecture MVVM / Clean Architecture.</p>
+          <ul>
+            <li>Consommation de l'API Jikan v4 avec un mode offline-first : les données restent consultables sans connexion grâce à la base locale</li>
+            <li>Recherche et tri, favoris persistés localement, import et export JSON</li>
+            <li>Thème clair et sombre, affichage adaptatif portrait et paysage</li>
+          </ul>
+          <p class="stack"><strong>Technologies :</strong> Kotlin, Jetpack Compose, Room (SQLite), Retrofit, Moshi, DataStore, Coil</p>
+          <a class="link" href="https://github.com/NagimaBouchikhi/App-Anime-Mobile-Kotlin">Voir le code sur GitHub</a>
+        </article>
+
+        <article class="project">
+          <h3>Application web de gestion du tutorat universitaire</h3>
+          <p class="context">Projet client, équipe de 3</p>
+          <p>Application réalisée pour un client réel, avec des points d'avancement réguliers pour recueillir et ajuster le besoin.</p>
+          <ul>
+            <li>Conception et gestion de la base de données</li>
+            <li>Module de gestion des tuteurs et des emplois du temps, avec génération de QR codes de présentation</li>
+            <li>Génération automatique de documents, comme les fiches de paie calculées selon le nombre de séances enregistrées</li>
+            <li>Travail collaboratif avec Git et échanges continus avec le client</li>
+          </ul>
+          <p class="stack"><strong>Technologies :</strong> Python, Django, MongoDB, Git</p>
+        </article>
+      </section>
+
+      <section id="competences" aria-labelledby="competences-titre">
+        <h2 id="competences-titre">Compétences</h2>
+        <dl class="skills">
+          <div><dt>Langages</dt><dd>Java, Kotlin, Python, SQL, JavaScript, HTML/CSS</dd></div>
+          <div><dt>Frameworks</dt><dd>Django, React, Jetpack Compose, Retrofit</dd></div>
+          <div><dt>Bases de données</dt><dd>SQL, MongoDB, Room (SQLite)</dd></div>
+          <div><dt>Outils et méthodes</dt><dd>Git / GitHub, Android Studio, MVVM / Clean Architecture</dd></div>
+        </dl>
+      </section>
+
+      <section id="formation" aria-labelledby="formation-titre">
+        <h2 id="formation-titre">Formation</h2>
+        <ol class="timeline">
+          <li>
+            <span class="years">2026 – 2027</span>
+            <span><span class="title">Master 2 Informatique, Génie Logiciel</span><br><span class="school">Université de Lille, en cours</span></span>
+          </li>
+          <li>
+            <span class="years">2025 – 2026</span>
+            <span><span class="title">Master 1 Informatique, E-Services</span><br><span class="school">Université de Lille</span></span>
+          </li>
+          <li>
+            <span class="years">2022 – 2025</span>
+            <span><span class="title">Licence Informatique</span><br><span class="school">Université de Lille</span></span>
+          </li>
+        </ol>
+        <p class="languages"><strong>Langues :</strong> français (natif), anglais (B1)</p>
+      </section>
+    </main>
+
+    <footer>Nagima Bouchikhi, 2026</footer>
+  </div>
+</body>
+</html>
